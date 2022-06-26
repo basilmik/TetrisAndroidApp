@@ -15,14 +15,11 @@ import com.basilgames.android.tetris.views.TetrisView
 class GameActivity : AppCompatActivity() {
     var textViewMaxScore: TextView? = null
     var textViewCurrentScore: TextView? = null
-    var appPreferences: AppPreferences? = null
-
 
     private lateinit var tetrisView: TetrisView
+    var appPreferences: AppPreferences? = null
     private val appModel: AppModel = AppModel()
 
-    //@SuppressLint("ClickableViewAccessibility")
-    @SuppressLint("ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -39,9 +36,8 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setOnTouchListener(this::onTetrisViewTouch)
         buttonRestart.setOnClickListener(this::buttonRestartClick)
 
-        updateCurrentScore()
         updateMaxScore()
-        appModel.startGame()
+        updateCurrentScore()
     }
 
     private fun buttonRestartClick(view: View)
@@ -64,31 +60,27 @@ class GameActivity : AppCompatActivity() {
                 3 -> moveTetromino(AppModel.Motions.RIGHT)
             }
         }
-
         return true
     }
 
 
-    private fun resolveTouchDirection(view: View, event: MotionEvent): Int
-    {
+    private fun resolveTouchDirection(view: View, event: MotionEvent): Int {
         val x = event.x / view.width
         val y = event.y / view.height
+        val direction: Int
 
-        val direction: Int = if(y>x)
-        {
-            if (x > 1- y) 2 else 0
-        }
-        else
-        {
+        direction = if (y > x) {
+            if (x > 1 - y) 2 else 0 } else {
+
             if (x > 1 - y) 3 else 1
         }
         return direction
     }
 
+
     private fun moveTetromino(motion: AppModel.Motions)
     {
-        if (appModel.isGameActive())
-        {
+        if (appModel.isGameActive()) {
             tetrisView.setGameCommand(motion)
         }
     }
@@ -101,5 +93,4 @@ class GameActivity : AppCompatActivity() {
     private fun updateCurrentScore(){
         textViewCurrentScore?.text = "0"
     }
-
 }
