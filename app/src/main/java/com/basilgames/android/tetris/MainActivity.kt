@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val buttonNewGame = findViewById<Button>(R.id.button_new_game)
         val buttonResetScore = findViewById<Button>(R.id.button_reset_score)
         val buttonExit = findViewById<Button>(R.id.button_exit)
-        val textViewMaxScore = findViewById<TextView>(R.id.text_view_max_score)
+        textViewMaxScore = findViewById<TextView>(R.id.text_view_max_score)
 
         buttonNewGame.setOnClickListener(this::onButtonNewGame)
         buttonResetScore.setOnClickListener(this::onButtonResetScore)

@@ -37,7 +37,7 @@ class TetrisView : View {
     }
 
     fun setGameCommand(move: AppModel.Motions) {
-        if (null != model && (model?.currentState == AppModel.Stats.ACTIVE.name)) {
+        if (null != model && (model?.currentState == AppModel.Statuses.ACTIVE.name)) {
             if (AppModel.Motions.DOWN == move) {
                 model?.generateField(move.name)
                 invalidate()
