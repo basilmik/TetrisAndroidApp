@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9">
-            <com.basilgames.android.tetris.view.TetrisView
+            <com.basilgames.android.tetris.views.TetrisView
                 android:id="@+id/view_tetris"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>

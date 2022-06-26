@@ -1,24 +1,20 @@
-package com.basilgames.android.tetris.view
+package com.basilgames.android.tetris.views
 
-import android.app.Notification
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
+import android.os.Handler
 import android.os.Message
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.DimenRes
-import androidx.annotation.Dimension
-import com.basilgames.android.tetris.AppModel
+import com.basilgames.android.tetris.models.AppModel
 import com.basilgames.android.tetris.GameActivity
 import com.basilgames.android.tetris.constants.CellConstants
 import com.basilgames.android.tetris.constants.FieldConstants
 import com.basilgames.android.tetris.models.Block
-import java.util.logging.Handler
-import java.util.logging.LogRecord
 
 class TetrisView: View {
 
@@ -43,9 +39,8 @@ class TetrisView: View {
 
     private class ViewHandler(private val owner: TetrisView) : Handler()
     {
-        /*override */fun handlerMessage(message: Message)
+        override fun handleMessage(message: Message)
         {
-            //super.handlerMessage(message)
             if (message.what == 0)
             {
                 if (owner.model != null)
@@ -54,7 +49,6 @@ class TetrisView: View {
                     {
                         owner.model?.endGame()
                         Toast.makeText(owner.activity, "GAME OVER", Toast.LENGTH_LONG).show()
-
                     }
                     if (owner.model!!.isGameActive())
                     {
@@ -67,23 +61,13 @@ class TetrisView: View {
 
         fun sleep(delay: Long)
         {
-            //this.removeMessages(0)
-            //sendMessageDelayed(obtainMessage(0), delay)
+            this.removeMessages(0)
+            sendMessageDelayed(obtainMessage(0), delay)
         }
 
-        override fun publish(record: LogRecord?) {
-            TODO("Not yet implemented")
-        }
-
-        override fun flush() {
-            TODO("Not yet implemented")
-        }
-
-        override fun close() {
-            TODO("Not yet implemented")
-        }
 
     }
+
 
     private data class Dimension(val width: Int, val height: Int)
 
@@ -202,5 +186,8 @@ class TetrisView: View {
         this.frameOffset = TetrisView.Dimension(offsetX, offsetY)
 
     }
+
+
+
 
 }

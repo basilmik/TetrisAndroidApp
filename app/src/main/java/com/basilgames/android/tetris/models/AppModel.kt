@@ -1,12 +1,10 @@
-package com.basilgames.android.tetris
+package com.basilgames.android.tetris.models
 
 import android.graphics.Point
 import com.basilgames.android.tetris.constants.CellConstants
 import com.basilgames.android.tetris.constants.FieldConstants
 import com.basilgames.android.tetris.helpers.array2dOfByte
-import com.basilgames.android.tetris.models.Block
 import com.basilgames.android.tetris.storage.AppPreferences
-import java.util.Locale.filter
 
 class AppModel {
 
@@ -295,7 +293,7 @@ class AppModel {
     fun endGame()
     {
         score = 0
-        currentState = AppModel.Stats.OVER.name
+        currentState = Stats.OVER.name
     }
 
     private fun resetModel()

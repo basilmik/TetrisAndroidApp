@@ -49,7 +49,7 @@ public class Block {
         BlockColor blockColor = BlockColor.values()[random.nextInt(BlockColor.values().length)];
 
         Block block = new Block(shapeIndex, blockColor);
-        block.position.x = block.position.x = Shape.values()[shapeIndex].getStartPosition();
+        block.position.x = Shape.values()[shapeIndex].getStartPosition();
 
         return block;
     }
