@@ -5,7 +5,7 @@ import android.graphics.Color;
 
 import androidx.annotation.NonNull;
 
-import com.basilgames.android.tetris.constants.FeildConstants;
+import com.basilgames.android.tetris.constants.FieldConstants;
 
 import java.util.Random;
 
@@ -38,7 +38,7 @@ public class Block {
         this.frameNumber = 0;
         this.shapeIndex = 0;
         /*</span>*/ this.color = blockColor;
-        this.position = new Point(FeildConstants.COLUMN_COUNT.getValue()/2, 0);
+        this.position = new Point(FieldConstants.COLUMN_COUNT.getValue()/2, 0);
 
     }
 
